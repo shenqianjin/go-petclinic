@@ -1,0 +1,44 @@
+{{define "navigator"}} {{/* navigator.html 它是页面的嵌入模板 */}}
+<nav class="navbar navbar-expand-lg navbar-dark" role="navigation">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><span></span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-navbar" style>
+
+            <ul class="nav navbar-nav me-auto mb-2 mb-lg-0" remove="all">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/" title="home page">
+                        <span class="fa fa-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/owners/find" title="find owners">
+                        <span class="fa fa-search"></span>
+                        <span>Find owners</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/vets" title="veterinarians">
+                        <span class="fa fa-th-list"></span>
+                        <span>Veterinarians</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/error" title="trigger a RuntimeException to see how it is handled">
+                        <span class="fa fa-exclamation-triangle"></span>
+                        <span>Error</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+{{end}} {{/*  {{ 嵌入模板定义格式：define "嵌入模板名称"}} {{end}}  */}}

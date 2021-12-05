@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+    {{template "header" .}} {{/* header.html 它是页面嵌入模板,最后的那个点表示将当前模板中的变量传递到header.html模板中 */}}
+  <body>
+    {{template "navigator" .}} {{/* header.html 它是页面嵌入模板,最后的那个点表示将当前模板中的变量传递到header.html模板中 */}}
+
+    <div class="container-fluid">
+        <div class="container xd-container">
+
+            <h2>Veterinarians</h2>
+            <table id="vets" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Specialties</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{ range . }}
+                <tr>
+                    <td>{{ .FirstName }} {{ .LastName }}</td>
+                    <td>{{ .City }}</td>
+                    <td>{{range .Specialties }}
+                        <span>{{ . }}</span>
+                        {{else}}
+                        <span>none</span>
+                        {{end}}</td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+
+            <a class="btn btn-primary" href="/vets/new">Add Vet</a>
+
+            <div class="row">
+                <a href="/vets/new">Add Veterinarian</a>
+                <!--<a href="/vets.xml">View as XML</a>
+                <a href="/vets.json">View as JSON</a>-->
+            </div>
+
+
+        </div>
+    </div>
+
+    {{template "footer"}} {{/* footer.html 它是页面嵌入模板,双花括号内容后面没有那个点表示footer.html模板中没有变量 */}}
+  </body>
+</html>

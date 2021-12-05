@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+    {{template "header" .}} {{/* header.html 它是页面嵌入模板,最后的那个点表示将当前模板中的变量传递到header.html模板中 */}}
+  <body>
+    {{template "navigator" .}} {{/* header.html 它是页面嵌入模板,最后的那个点表示将当前模板中的变量传递到header.html模板中 */}}
+
+    <div class="container-fluid">
+        <div class="container xd-container">
+
+            <h2>Owner Information</h2>
+
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><b>{{ .FirstName }} {{ .LastName }}</b></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ .Address }}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{ .City }}</td>
+                </tr>
+                <tr>
+                    <th>Telephone</th>
+                    <td>{{ .Telephone }}</td>
+                </tr>
+                </tbody></table>
+
+            <a href="{{ .Id }}/edit" class="btn btn-primary">Edit Owner</a>
+            <a href="{{ .Id }}/pets/new" class="btn btn-primary">Add New Pet</a>
+
+            <br>
+            <br>
+            <br>
+
+            <h2>Pets and Visits</h2>
+
+            {{ $ownerId := .Id }}
+
+            <table class="table table-striped">
+
+                <tbody>
+                {{ range .Pets }}
+                <tr>
+                    <td valign="top">
+                        <dl class="dl-horizontal">
+                            <dt>Name</dt>
+                            <dd>{{ .Name }}</dd>
+                            <dt>Birth Date</dt>
+                            <dd>{{ .BirthDate }}</dd>
+                            <dt>Type</dt>
+                            <dd>{{ .Type }}</dd>
+                        </dl>
+                    </td>
+                    <td valign="top">
+                        <table class="table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Visit Date</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{ range .Visits }}
+                            <tr>
+                                <td>{{ .Date }}</td>
+                                <td>{{ .Description }}</td>
+                            </tr>
+                            {{end}}
+                            <tr>
+                                <td><a href="{{ $ownerId }}/pets/{{ .Id }}/edit">Edit Pet</a></td>
+                                <td><a href="{{ $ownerId }}/pets/{{ .Id }}/visits/new">Add Visit</a></td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                {{end}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {{template "footer"}} {{/* footer.html 它是页面嵌入模板,双花括号内容后面没有那个点表示footer.html模板中没有变量 */}}
+  </body>
+</html>
