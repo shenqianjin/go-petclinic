@@ -2,11 +2,9 @@
 package handler
 
 import (
-	"net/http"
-
-	"petclinic/internal/service"
-
 	"github.com/tal-tech/go-zero/rest"
+	"net/http"
+	"petclinic/internal/service"
 )
 
 func RegisterHandlers(server *rest.Server, serverCtx *service.ServiceContext) {

@@ -14,6 +14,7 @@ func NewOwnerForm(ctx *service.ServiceContext) http.HandlerFunc {
 		if r.Method == http.MethodPost {
 			// Post接口
 			// validated
+			// biz.GetOwnerBiz().Owners()
 			if r.FormValue("firstName") == "" {
 				http.Error(w, fmt.Sprintf("firstName can not be empty"), http.StatusInternalServerError)
 				return
@@ -83,4 +84,3 @@ func GetOwnerDetail(ctx *service.ServiceContext) http.HandlerFunc {
 		doHandlerInternal(w, r, "../web/templates/owners/owner_detail.html", owner)
 	}
 }
-

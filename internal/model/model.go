@@ -7,12 +7,12 @@ type NameEntity struct {
 }
 
 type Person struct {
-	FirstName   string
-	LastName    string
+	FirstName string
+	LastName  string
 }
 
 type Vet struct {
-	Id int64
+	Id          int64
 	FirstName   string
 	LastName    string
 	City        string
@@ -22,30 +22,26 @@ type Vet struct {
 type PetType string
 
 type Pet struct {
-	Id int64
-	Name string
+	Id        int64
+	Name      string
 	BirthDate time.Time
-	Type string
-	Owner []Owner
-	Visits []Visit
-
+	Type      string
+	Owner     []Owner
+	Visits    []Visit
 }
 
 type Visit struct {
-	Date time.Time
+	Date        time.Time
 	Description string
-	PetId int64
-
+	PetId       int64
 }
 
 type Owner struct {
-	Id int64
-	FirstName   string
-	LastName    string
-	Address string
-	City string
+	Id        int64
+	FirstName string
+	LastName  string
+	Address   string
+	City      string
 	Telephone string
-	Pets []Pet
+	Pets      []Pet
 }
-
-

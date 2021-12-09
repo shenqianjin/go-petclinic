@@ -1,4 +1,4 @@
-package model
+package support
 
 import "github.com/tal-tech/go-zero/rest"
 

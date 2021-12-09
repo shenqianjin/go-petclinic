@@ -7,11 +7,11 @@ import (
 	"log"
 	"net/http"
 	"petclinic/internal/handler"
-	"petclinic/internal/model"
+	"petclinic/internal/support"
 	"strconv"
 )
 
-var configFile = flag.String("f", "../config/petclinic-api.yaml", "the config file")
+var configFile = flag.String("f", "../configs/petclinic-local.yaml", "the configs file")
 
 /*func main() {
 	flag.Parse()
@@ -29,11 +29,10 @@ var configFile = flag.String("f", "../config/petclinic-api.yaml", "the config fi
 	server.Start()
 }*/
 
-
 func main() {
 	// load configuration file
 	flag.Parse()
-	var c model.Config
+	var c support.Config
 	conf.MustLoad(*configFile, &c)
 	// static resources
 	http.Handle("/resources/css/", http.StripPrefix("/resources/css/", http.FileServer(http.Dir("../web/static/resources/css/"))))
@@ -58,5 +57,3 @@ func main() {
 	fmt.Printf("Starting HTTP server at port %v\n", c.Port)
 	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(c.Port), nil))
 }
-
-

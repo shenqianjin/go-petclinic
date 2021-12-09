@@ -1,14 +1,12 @@
 package service
 
-import (
-	"petclinic/internal/model"
-)
+import "petclinic/internal/support"
 
 type ServiceContext struct {
-	Config model.Config
+	Config support.Config
 }
 
-func NewServiceContext(c model.Config) *ServiceContext {
+func NewServiceContext(c support.Config) *ServiceContext {
 	return &ServiceContext{
 		Config: c,
 	}
