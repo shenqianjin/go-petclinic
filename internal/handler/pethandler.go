@@ -2,18 +2,17 @@ package handler
 
 import (
 	"net/http"
-	"petclinic/internal/service"
+	"petclinic/internal/support"
 )
 
-func NewPetForm(ctx *service.ServiceContext) http.HandlerFunc {
+func NewPetForm(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		doHandlerInternal(w, r, "../web/templates/pets/create_pet.html", nil)
+		doHandlerInternal(w, r, "../../web/templates/pets/create_pet.html", nil)
 	}
 }
 
-func NewVisitForm(ctx *service.ServiceContext) http.HandlerFunc {
+func NewVisitForm(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		doHandlerInternal(w, r, "../web/templates/pets/create_visit.html", nil)
+		doHandlerInternal(w, r, "../../web/templates/pets/create_visit.html", nil)
 	}
 }
-

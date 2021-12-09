@@ -22,6 +22,6 @@ func doHandlerInternal(w http.ResponseWriter, r *http.Request, filename string, 
 }
 
 func parseTemplateFile(filename string) (*template.Template, error) {
-	return template.ParseFiles(filename, "../web/templates/fragments/header.html",
-		"../web/templates/fragments/navigator.html", "../web/templates/fragments/footer.html")
+	return template.ParseFiles(filename, "../../web/templates/fragments/header.html",
+		"../../web/templates/fragments/navigator.html", "../../web/templates/fragments/footer.html")
 }

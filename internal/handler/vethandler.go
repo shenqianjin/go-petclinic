@@ -4,16 +4,16 @@ import (
 	"fmt"
 	"net/http"
 	"petclinic/internal/biz"
-	"petclinic/internal/service"
+	"petclinic/internal/support"
 )
 
-func NewVetForm(ctx *service.ServiceContext) http.HandlerFunc {
+func NewVetForm(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		doHandlerInternal(w, r, "../web/templates/vets/create_vet.html", nil)
+		doHandlerInternal(w, r, "../../web/templates/vets/create_vet.html", nil)
 	}
 }
 
-func GetVets(ctx *service.ServiceContext) http.HandlerFunc {
+func GetVets(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		vetList, err := biz.GetPetBiz().Vets()
 		if err != nil {
@@ -21,6 +21,6 @@ func GetVets(ctx *service.ServiceContext) http.HandlerFunc {
 				http.StatusInternalServerError)
 			return
 		}
-		doHandlerInternal(w, r, "../web/templates/vets/vet_list.html", vetList)
+		doHandlerInternal(w, r, "../../web/templates/vets/vet_list.html", vetList)
 	}
 }

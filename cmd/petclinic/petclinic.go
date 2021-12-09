@@ -11,7 +11,7 @@ import (
 	"strconv"
 )
 
-var configFile = flag.String("f", "../configs/petclinic-local.yaml", "the configs file")
+var configFile = flag.String("f", "../../configs/petclinic-local.yaml", "the configs file")
 
 /*func main() {
 	flag.Parse()
@@ -35,13 +35,13 @@ func main() {
 	var c support.Config
 	conf.MustLoad(*configFile, &c)
 	// static resources
-	http.Handle("/resources/css/", http.StripPrefix("/resources/css/", http.FileServer(http.Dir("../web/static/resources/css/"))))
-	http.Handle("/resources/images/", http.StripPrefix("/resources/images/", http.FileServer(http.Dir("../web/static/resources/images/"))))
-	http.Handle("/static/resources/images/", http.StripPrefix("/static/resources/images/", http.FileServer(http.Dir("../web/static/resources/images/"))))
-	http.Handle("/resources/fonts/", http.StripPrefix("/resources/fonts/", http.FileServer(http.Dir("../web/static/resources/fonts/"))))
+	http.Handle("/resources/css/", http.StripPrefix("/resources/css/", http.FileServer(http.Dir("../../web/static/resources/css/"))))
+	http.Handle("/resources/images/", http.StripPrefix("/resources/images/", http.FileServer(http.Dir("../../web/static/resources/images/"))))
+	http.Handle("/static/resources/images/", http.StripPrefix("/static/resources/images/", http.FileServer(http.Dir("../../web/static/resources/images/"))))
+	http.Handle("/resources/fonts/", http.StripPrefix("/resources/fonts/", http.FileServer(http.Dir("../../web/static/resources/fonts/"))))
 	// welcome and error
-	http.HandleFunc("/", handler.ParseTemplateFile("../web/templates/welcome.html", map[string]string{"welcome": "Welcome to My Pet Clinic by Golang!"}))
-	http.HandleFunc("/error", handler.ParseTemplateFile("../web/templates/error.html", map[string]string{"message": "Demo internal server error"}))
+	http.HandleFunc("/", handler.ParseTemplateFile("../../web/templates/welcome.html", map[string]string{"welcome": "Welcome to My Pet Clinic by Golang!"}))
+	http.HandleFunc("/error", handler.ParseTemplateFile("../../web/templates/error.html", map[string]string{"message": "Demo internal server error"}))
 	// vets
 	http.HandleFunc("/vets", handler.GetVets(nil))
 	http.HandleFunc("/vets/new", handler.NewVetForm(nil))

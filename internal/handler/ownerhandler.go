@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"petclinic/internal/biz"
 	"petclinic/internal/model"
-	"petclinic/internal/service"
+	"petclinic/internal/support"
 	"strconv"
 )
 
-func NewOwnerForm(ctx *service.ServiceContext) http.HandlerFunc {
+func NewOwnerForm(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodPost {
 			// Post接口
@@ -39,18 +39,18 @@ func NewOwnerForm(ctx *service.ServiceContext) http.HandlerFunc {
 			}
 		} else if r.Method == http.MethodGet {
 			// page
-			doHandlerInternal(w, r, "../web/templates/owners/create_owner.html", nil)
+			doHandlerInternal(w, r, "../../web/templates/owners/create_owner.html", nil)
 		}
 	}
 }
 
-func FindOwner(ctx *service.ServiceContext) http.HandlerFunc {
+func FindOwner(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		doHandlerInternal(w, r, "../web/templates/owners/find_owner.html", nil)
+		doHandlerInternal(w, r, "../../web/templates/owners/find_owner.html", nil)
 	}
 }
 
-func GetOwners(ctx *service.ServiceContext) http.HandlerFunc {
+func GetOwners(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// get request param
 		lastName := r.URL.Query().Get("lastName")
@@ -63,11 +63,11 @@ func GetOwners(ctx *service.ServiceContext) http.HandlerFunc {
 			return
 		}
 		// render view
-		doHandlerInternal(w, r, "../web/templates/owners/owners_list.html", ownersList)
+		doHandlerInternal(w, r, "../../web/templates/owners/owners_list.html", ownersList)
 	}
 }
 
-func GetOwnerDetail(ctx *service.ServiceContext) http.HandlerFunc {
+func GetOwnerDetail(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// get request param
 		idStr := r.URL.Query().Get("id")
@@ -81,6 +81,6 @@ func GetOwnerDetail(ctx *service.ServiceContext) http.HandlerFunc {
 			return
 		}
 		// render view
-		doHandlerInternal(w, r, "../web/templates/owners/owner_detail.html", owner)
+		doHandlerInternal(w, r, "../../web/templates/owners/owner_detail.html", owner)
 	}
 }

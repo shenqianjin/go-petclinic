@@ -4,16 +4,16 @@ import (
 	"context"
 	"github.com/tal-tech/go-zero/core/logx"
 	"petclinic/internal/model/dto"
-	"petclinic/internal/service"
+	"petclinic/internal/support"
 )
 
 type CreateUserLogic struct {
 	logx.Logger
 	ctx    context.Context
-	svcCtx *service.ServiceContext
+	svcCtx *support.ServiceContext
 }
 
-func NewCreateUserLogic(ctx context.Context, svcCtx *service.ServiceContext) CreateUserLogic {
+func NewCreateUserLogic(ctx context.Context, svcCtx *support.ServiceContext) CreateUserLogic {
 	return CreateUserLogic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,

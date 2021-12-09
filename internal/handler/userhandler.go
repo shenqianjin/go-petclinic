@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"petclinic/internal/biz"
 	"petclinic/internal/model/dto"
-	"petclinic/internal/service"
+	"petclinic/internal/support"
 )
 
-func CreateUserHandler(ctx *service.ServiceContext) http.HandlerFunc {
+func CreateUserHandler(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req dto.Request
 		if err := httpx.Parse(r, &req); err != nil {
@@ -26,7 +26,7 @@ func CreateUserHandler(ctx *service.ServiceContext) http.HandlerFunc {
 	}
 }
 
-func GetUserHandler(ctx *service.ServiceContext) http.HandlerFunc {
+func GetUserHandler(ctx *support.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req dto.Request
 		if err := httpx.Parse(r, &req); err != nil {

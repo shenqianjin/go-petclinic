@@ -4,10 +4,10 @@ package handler
 import (
 	"github.com/tal-tech/go-zero/rest"
 	"net/http"
-	"petclinic/internal/service"
+	"petclinic/internal/support"
 )
 
-func RegisterHandlers(server *rest.Server, serverCtx *service.ServiceContext) {
+func RegisterHandlers(server *rest.Server, serverCtx *support.ServiceContext) {
 	server.AddRoutes(
 		[]rest.Route{
 			{

@@ -5,6 +5,7 @@ import (
 	"log"
 	"petclinic/internal/model"
 	"petclinic/internal/service"
+	"petclinic/internal/support"
 	"sync"
 	"time"
 )
@@ -12,7 +13,7 @@ import (
 type ownerBiz struct {
 	log    log.Logger
 	ctx    context.Context
-	svcCtx *service.ServiceContext
+	svcCtx *support.ServiceContext
 }
 
 var (
